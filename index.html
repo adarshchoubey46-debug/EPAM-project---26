@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meridian Bank — Customer Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== TOP NAV / LOGIN ===== -->
+<nav class="navbar">
+  <div class="logo">Meridian <span>Bank</span></div>
+  <p class="welcome" id="welcomeText">Log in to get started</p>
+
+  <form class="login-form" id="loginForm">
+    <input type="text" id="loginUsername" placeholder="user" required>
+    <input type="password" id="loginPin" placeholder="PIN" maxlength="4" required>
+    <button type="submit">&rarr;</button>
+  </form>
+</nav>
+
+<!-- Demo users — click a card to auto-fill the login form above -->
+<div class="demo-users" id="demoUsers"></div>
+
+<!-- ===== MAIN DASHBOARD (hidden until login) ===== -->
+<main class="app hidden" id="app">
+
+  <!-- Balance header -->
+  <div class="balance">
+    <div>
+      <p class="balance-label">Current balance</p>
+      <p class="balance-date">As of <span id="balanceDate"></span></p>
+    </div>
+    <p class="balance-value" id="balanceValue">₹0.00</p>
+  </div>
+
+  <div class="content">
+
+    <!-- Left column: movements -->
+    <section class="movements-panel">
+      <div class="movements-header">
+        <h3>Transactions</h3>
+        <button id="sortBtn" class="sort-btn">&#8645; Sort</button>
+      </div>
+      <div class="movements" id="movements"></div>
+    </section>
+
+    <!-- Right column: action cards -->
+    <section class="actions">
+
+      <div class="action-card">
+        <h4>Transfer money</h4>
+        <form id="transferForm">
+          <input type="text" id="transferTo" placeholder="Transfer to (username)" required>
+          <input type="number" id="transferAmount" placeholder="Amount" required>
+          <button type="submit">Transfer</button>
+        </form>
+        <p class="form-msg" id="transferMsg"></p>
+      </div>
+
+      <div class="action-card">
+        <h4>Request loan</h4>
+        <form id="loanForm">
+          <input type="number" id="loanAmount" placeholder="Loan amount" required>
+          <button type="submit">Request loan</button>
+        </form>
+        <p class="form-msg" id="loanMsg"></p>
+      </div>
+
+      <div class="action-card">
+        <h4>Close account</h4>
+        <form id="closeForm">
+          <input type="text" id="closeUsername" placeholder="Confirm user" required>
+          <input type="password" id="closePin" placeholder="Confirm PIN" maxlength="4" required>
+          <button type="submit">Close account</button>
+        </form>
+        <p class="form-msg" id="closeMsg"></p>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- Footer: summary + logout timer -->
+  <footer class="summary">
+    <p>In: <span id="sumIn">₹0.00</span></p>
+    <p>Out: <span id="sumOut">₹0.00</span></p>
+    <p>Interest: <span id="sumInterest">₹0.00</span></p>
+    <p class="timer">Logout in <span id="timer">05:00</span></p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
