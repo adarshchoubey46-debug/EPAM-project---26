@@ -13,7 +13,7 @@ const amountInput = document.getElementById("amount");
 const historyEl = document.getElementById("history");
 const emptyNote = document.getElementById("emptyNote");
 
-// ===== INITIAL SETUP =====
+// INITIAL SETUP 
 function init() {
   greeting.textContent = "Good day, " + customer.name;
   todayDisplay.textContent = "As of " + new Date().toLocaleDateString("en-IN", {
@@ -22,18 +22,18 @@ function init() {
   updateBalance();
 }
 
-// ===== UPDATE BALANCE ON SCREEN =====
+// UPDATE BALANCE ON SCREEN 
 function updateBalance() {
   balanceDisplay.textContent = "₹" + customer.balance.toLocaleString("en-IN");
 }
 
-// ===== SHOW SUCCESS/ERROR MESSAGE =====
+// SHOW SUCCESS/ERROR MESSAGE 
 function showMessage(text, type) {
   messageDisplay.textContent = text;
   messageDisplay.className = "message " + type;
 }
 
-// ===== ADD ROW TO TRANSACTION LEDGER =====
+// ADD ROW TO TRANSACTION LEDGER
 function addToHistory(type, amount) {
   emptyNote.style.display = "none"; // hide the "no entries yet" note
 
@@ -56,7 +56,7 @@ function addToHistory(type, amount) {
   historyEl.prepend(row); // newest entry on top
 }
 
-// ===== DEPOSIT =====
+// DEPOSIT 
 function deposit() {
   const amount = Number(amountInput.value);
 
@@ -72,7 +72,7 @@ function deposit() {
   amountInput.value = "";
 }
 
-// ===== WITHDRAW =====
+// WITHDRAW 
 function withdraw() {
   const amount = Number(amountInput.value);
 
