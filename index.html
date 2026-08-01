@@ -2,93 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Meridian Bank — Customer Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian & Co. — Passbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== TOP NAV / LOGIN ===== -->
-<nav class="navbar">
-  <div class="logo">Meridian <span>Bank</span></div>
-  <p class="welcome" id="welcomeText">Log in to get started</p>
+<div class="passbook">
 
-  <form class="login-form" id="loginForm">
-    <input type="text" id="loginUsername" placeholder="user" required>
-    <input type="password" id="loginPin" placeholder="PIN" maxlength="4" required>
-    <button type="submit">&rarr;</button>
-  </form>
-</nav>
+  <!-- spine -->
+  <div class="spine"></div>
 
-<!-- Demo users — click a card to auto-fill the login form above -->
-<div class="demo-users" id="demoUsers"></div>
+  <!-- header -->
+  <header>
+    <div class="brand">Meridian <span>&amp;</span> Co.</div>
+    <p class="greeting" id="greeting">Good day, Adarsh</p>
+  </header>
 
-<!-- ===== MAIN DASHBOARD (hidden until login) ===== -->
-<main class="app hidden" id="app">
+  <!-- balance -->
+  <section class="balance-block">
+    <p class="balance-label">Available balance</p>
+    <p class="balance-value" id="balance">₹5,000</p>
+    <p class="balance-date" id="today"></p>
+  </section>
 
-  <!-- Balance header -->
-  <div class="balance">
-    <div>
-      <p class="balance-label">Current balance</p>
-      <p class="balance-date">As of <span id="balanceDate"></span></p>
+  <div class="tear"></div>
+
+  <!-- actions -->
+  <section class="actions">
+    <div class="amount-field">
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" placeholder="0">
     </div>
-    <p class="balance-value" id="balanceValue">₹0.00</p>
-  </div>
+    <div class="action-buttons">
+      <button class="btn deposit-btn" onclick="deposit()">↓ Deposit</button>
+      <button class="btn withdraw-btn" onclick="withdraw()">↑ Withdraw</button>
+    </div>
+    <p class="message" id="message"></p>
+  </section>
 
-  <div class="content">
+  <!-- ledger -->
+  <section class="ledger">
+    <p class="ledger-title">Passbook entries</p>
+    <div class="ledger-rows" id="history">
+      <p class="empty-note" id="emptyNote">No entries yet — your first transaction will appear here.</p>
+    </div>
+  </section>
 
-    <!-- Left column: movements -->
-    <section class="movements-panel">
-      <div class="movements-header">
-        <h3>Transactions</h3>
-        <button id="sortBtn" class="sort-btn">&#8645; Sort</button>
-      </div>
-      <div class="movements" id="movements"></div>
-    </section>
-
-    <!-- Right column: action cards -->
-    <section class="actions">
-
-      <div class="action-card">
-        <h4>Transfer money</h4>
-        <form id="transferForm">
-          <input type="text" id="transferTo" placeholder="Transfer to (username)" required>
-          <input type="number" id="transferAmount" placeholder="Amount" required>
-          <button type="submit">Transfer</button>
-        </form>
-        <p class="form-msg" id="transferMsg"></p>
-      </div>
-
-      <div class="action-card">
-        <h4>Request loan</h4>
-        <form id="loanForm">
-          <input type="number" id="loanAmount" placeholder="Loan amount" required>
-          <button type="submit">Request loan</button>
-        </form>
-        <p class="form-msg" id="loanMsg"></p>
-      </div>
-
-      <div class="action-card">
-        <h4>Close account</h4>
-        <form id="closeForm">
-          <input type="text" id="closeUsername" placeholder="Confirm user" required>
-          <input type="password" id="closePin" placeholder="Confirm PIN" maxlength="4" required>
-          <button type="submit">Close account</button>
-        </form>
-        <p class="form-msg" id="closeMsg"></p>
-      </div>
-
-    </section>
-  </div>
-
-  <!-- Footer: summary + logout timer -->
-  <footer class="summary">
-    <p>In: <span id="sumIn">₹0.00</span></p>
-    <p>Out: <span id="sumOut">₹0.00</span></p>
-    <p>Interest: <span id="sumInterest">₹0.00</span></p>
-    <p class="timer">Logout in <span id="timer">05:00</span></p>
-  </footer>
-
-</main>
+</div>
 
 <script src="script.js"></script>
 </body>

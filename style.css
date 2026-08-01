@@ -1,0 +1,264 @@
+/* =========================================================
+   Design tokens
+   Ink   #12233F   Paper #FBF7EF   Brass #B08C55
+   Moss  #3E6A52   Brick #A23E3E   Line  #E6DCC7
+   Display: Fraunces (serif, characterful)
+   Body:    Inter
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #12233F;
+  background-image: radial-gradient(circle at 20% 20%, #1B3157, #0D1B30 70%);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #12233F;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+}
+
+.passbook {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: #FBF7EF;
+  border-radius: 3px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+/* brass spine along the left edge, like a stitched passbook */
+.spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #B08C55 0 8px,
+    #8C6C3D 8px 9px,
+    transparent 9px 18px
+  );
+}
+
+header {
+  padding: 32px 32px 20px 52px;
+  border-bottom: 1px solid #E6DCC7;
+}
+
+.brand {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.brand span {
+  color: #B08C55;
+}
+
+.greeting {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #6B6455;
+}
+
+.balance-block {
+  padding: 28px 32px 24px 52px;
+  background: linear-gradient(180deg, #F3ECDB, #FBF7EF);
+}
+
+.balance-label {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8C7F65;
+}
+
+.balance-value {
+  margin: 8px 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: 46px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #12233F;
+}
+
+.balance-date {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #A6997E;
+}
+
+/* torn-edge divider between balance stub and the working section */
+.tear {
+  height: 10px;
+  background:
+    linear-gradient(135deg, transparent 66%, #FBF7EF 66%) 0 0 / 10px 10px,
+    linear-gradient(-135deg, transparent 66%, #FBF7EF 66%) 0 0 / 10px 10px;
+  background-color: #12233F;
+  background-repeat: repeat-x;
+  margin-left: 52px;
+}
+
+.actions {
+  padding: 24px 32px 8px 52px;
+}
+
+.amount-field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8C7F65;
+  margin-bottom: 6px;
+}
+
+.amount-field input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  border: 1px solid #E6DCC7;
+  background: #fff;
+  border-radius: 3px;
+  color: #12233F;
+}
+
+.amount-field input:focus {
+  outline: 2px solid #B08C55;
+  outline-offset: 1px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.deposit-btn {
+  background: #3E6A52;
+  color: #F3ECDB;
+}
+.deposit-btn:hover { background: #345A46; }
+
+.withdraw-btn {
+  background: transparent;
+  color: #A23E3E;
+  border-color: #A23E3E;
+}
+.withdraw-btn:hover { background: #A23E3E; color: #fff; }
+
+.message {
+  min-height: 18px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.message.success { color: #3E6A52; }
+.message.error { color: #A23E3E; }
+
+.ledger {
+  padding: 8px 32px 32px 52px;
+}
+
+.ledger-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8C7F65;
+  margin: 16px 0 12px;
+}
+
+.ledger-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-note {
+  font-size: 13px;
+  color: #A6997E;
+  font-style: italic;
+  margin: 4px 0;
+}
+
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px dashed #E6DCC7;
+  font-size: 14px;
+}
+
+.ledger-row:last-child {
+  border-bottom: none;
+}
+
+.row-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-type {
+  font-weight: 600;
+}
+
+.row-date {
+  font-size: 11px;
+  color: #A6997E;
+  margin-top: 2px;
+}
+
+.row-amounts {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.row-amount {
+  font-weight: 600;
+}
+
+.row-amount.pos { color: #3E6A52; }
+.row-amount.neg { color: #A23E3E; }
+
+.row-balance {
+  font-size: 11px;
+  color: #A6997E;
+  margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+  header, .balance-block, .actions, .ledger {
+    padding-left: 40px;
+  }
+  .balance-value {
+    font-size: 36px;
+  }
+}
