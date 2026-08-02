@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XYZ BANK</title>
+  <title>PQR Bank</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2 id="wel">Welcome Customer!!!</h2>
-  <div id="instructions">
-    <h3>Follow the below steps to get Diwali Coupon:</h3>
+  <h2 id="wel">Hello Valued Customer!</h2>
 
-    <p>1. Enter your Customer ID in the textbox</p>
-    <p>2. Click on Validate Customer button</p>
-    <p>3. Click on Generate Coupon button</p>
+  <div id="instructions">
+    <h3>Steps to claim your Diwali Coupon:</h3>
+    <p>1. Type your Customer ID in the box below</p>
+    <p>2. Press the "Validate Customer" button</p>
+    <p>3. Press the "Generate Coupon" button</p>
   </div>
+
   <br>
-  <button onclick="hide()">Click herre to Register</button> <br><br>
-  <label>Enter Customer ID:</label>
-  <input type="text" id="custID">
+
+  <button onclick="hide()">New here? Register Now</button>
   <br><br>
+
+  <label for="custID">Customer ID:</label>
+  <input type="text" id="custID" placeholder="Enter your ID">
+  <br><br>
+
   <button onclick="validateCustomer()">Validate Customer</button>
   <button onclick="generateCoupon()">Generate Coupon</button>
-  <!-- popup box(own method)-->
-   <div id="popup">
+
+  <!-- popup box -->
+  <div id="popup">
     <p id="popMessage"></p>
-    <button onclick="closePopup()">OK</button>
-   </div>
+    <button onclick="closePopup()">Close</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
