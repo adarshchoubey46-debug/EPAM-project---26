@@ -1,59 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meridian & Co. — Passbook</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ BANK</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h2 id="wel">Welcome Customer!!!</h2>
+  <div id="instructions">
+    <h3>Follow the below steps to get Diwali Coupon:</h3>
 
-<div class="passbook">
-
-  <!-- spine -->
-  <div class="spine"></div>
-
-  <!-- header -->
-  <header>
-    <div class="brand">Meridian <span>&amp;</span> Co.</div>
-    <p class="greeting" id="greeting">Good day, Adarsh</p>
-  </header>
-
-  <!-- balance -->
-  <section class="balance-block">
-    <p class="balance-label">Available balance</p>
-    <p class="balance-value" id="balance">₹5,000</p>
-    <p class="balance-date" id="today"></p>
-  </section>
-
-  <div class="tear"></div>
-
-  <!-- actions -->
-  <section class="actions">
-    <div class="amount-field">
-      <label for="amount">Amount</label>
-      <input type="number" id="amount" placeholder="0">
-    </div>
-    <div class="action-buttons">
-      <button class="btn deposit-btn" onclick="deposit()">↓ Deposit</button>
-      <button class="btn withdraw-btn" onclick="withdraw()">↑ Withdraw</button>
-    </div>
-    <p class="message" id="message"></p>
-  </section>
-
-  <!-- ledger -->
-  <section class="ledger">
-    <p class="ledger-title">Passbook entries</p>
-    <div class="ledger-rows" id="history">
-      <p class="empty-note" id="emptyNote">No entries yet — your first transaction will appear here.</p>
-    </div>
-  </section>
-
-</div>
-
-<script src="script.js"></script>
+    <p>1. Enter your Customer ID in the textbox</p>
+    <p>2. Click on Validate Customer button</p>
+    <p>3. Click on Generate Coupon button</p>
+  </div>
+  <br>
+  <button onclick="hide()">Click herre to Register</button> <br><br>
+  <label>Enter Customer ID:</label>
+  <input type="text" id="custID">
+  <br><br>
+  <button onclick="validateCustomer()">Validate Customer</button>
+  <button onclick="generateCoupon()">Generate Coupon</button>
+  <!-- popup box(own method)-->
+   <div id="popup">
+    <p id="popMessage"></p>
+    <button onclick="closePopup()">OK</button>
+   </div>
+  <script src="script.js"></script>
 </body>
 </html>
